@@ -3,7 +3,7 @@
    ======================================== */
 
 // *** IMPORTANT: Replace this URL after deploying your Google Apps Script ***
-const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwnVg_dFA4F3rLlb63CllkZal5JfYWOZMyHZwWTTA7KVjodGn5ipBfYYyL8rWJDzmVS/exec';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -100,29 +100,25 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    const data = {
-      name: name.value.trim(),
-      email: email.value.trim(),
-      guests: guests.value,
-      attending: attending.value,
-      message: form.querySelector('#message').value.trim(),
-      timestamp: new Date().toLocaleString()
-    };
+    const formData = new FormData();
+    formData.append('name', name.value.trim());
+    formData.append('email', email.value.trim());
+    formData.append('guests', guests.value);
+    formData.append('attending', attending.value);
+    formData.append('message', form.querySelector('#message').value.trim());
+    formData.append('timestamp', new Date().toLocaleString());
 
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: formData
       });
 
-      // With no-cors we can't read the response, but the data is sent
       form.style.display = 'none';
       successEl.classList.add('show');
       successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch (err) {
-      // Even if there's a network issue, show success since no-cors doesn't give us status
       form.style.display = 'none';
       successEl.classList.add('show');
       successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
