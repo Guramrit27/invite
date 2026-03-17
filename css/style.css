@@ -518,50 +518,87 @@ a:hover {
    ======================================== */
 .venues-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
 }
 
 .venue-card {
-  padding: 32px;
+  position: relative;
+  padding: 36px 28px 32px;
   border: 1px solid #e0d6ce;
   border-radius: 12px;
   background: #ffffff;
   text-align: center;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .venue-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.venue-card-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e0d6ce;
+}
+
+.venue-card-highlight .venue-card-top-bar {
+  background: #c9a87c;
 }
 
 .venue-card-highlight {
-  border-color: #c9a87c;
-  box-shadow: 0 0 0 1px #c9a87c;
+  border-color: rgba(201, 168, 124, 0.4);
+}
+
+.venue-icon {
+  color: #c9a87c;
+  margin-bottom: 16px;
 }
 
 .venue-day {
   font-family: 'Playfair Display', serif;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #c9a87c;
-  margin-bottom: 12px;
+  letter-spacing: 0.12em;
+  color: #aaa;
+  margin-bottom: 10px;
 }
 
 .venue-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: #3a3a3a;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.venue-desc {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: #8a8a8a;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.venue-time {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c9a87c;
+  margin-bottom: 6px;
 }
 
 .venue-address {
   font-size: 0.9rem;
   color: #7a7a7a;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 /* --- Buttons --- */
@@ -837,7 +874,7 @@ input[type="radio"] {
 
   .venues-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 20px;
   }
 
   .form-row {
