@@ -144,64 +144,65 @@ a:hover {
   justify-content: center;
   text-align: center;
   padding: 40px 24px;
-  background-color: #faf8f5;
   position: relative;
+  background-color: #1a1510;
 }
 
-.hero::before {
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 80%;
+  display: block;
+}
+
+.hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(201, 168, 124, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 50%, rgba(212, 165, 165, 0.06) 0%, transparent 50%);
-  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 10, 5, 0.38) 0%,
+    rgba(15, 10, 5, 0.52) 50%,
+    rgba(15, 10, 5, 0.68) 100%
+  );
 }
 
 .hero-content {
   position: relative;
-}
-
-.hero-portrait {
-  width: 220px;
-  height: 220px;
-  margin: 0 auto 32px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid #e0d6ce;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-}
-
-.hero-portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  z-index: 1;
 }
 
 .hero-tagline {
   font-family: 'Lora', serif;
   font-style: italic;
   font-size: 1.1rem;
-  color: #c9a87c;
-  margin-bottom: 16px;
-  letter-spacing: 0.04em;
+  color: rgba(201, 168, 124, 0.95);
+  margin-bottom: 20px;
+  letter-spacing: 0.06em;
 }
 
 .hero-names {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 600;
-  color: #3a3a3a;
-  line-height: 1.2;
-  margin-bottom: 24px;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 28px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .hero-names .amp {
   font-style: italic;
   color: #c9a87c;
   display: inline-block;
-  margin: 0 8px;
+  margin: 0 10px;
 }
 
 .hero-date {
@@ -210,30 +211,32 @@ a:hover {
   justify-content: center;
   gap: 20px;
   font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #5a5a5a;
+  color: rgba(255, 255, 255, 0.82);
   margin-bottom: 12px;
 }
 
 .hero-date-line {
   display: block;
-  width: 60px;
+  width: 50px;
   height: 1px;
-  background-color: #e0d6ce;
+  background: rgba(201, 168, 124, 0.7);
 }
 
 .hero-venue {
-  font-size: 0.95rem;
-  color: #8a8a8a;
-  letter-spacing: 0.04em;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .scroll-indicator {
   position: absolute;
   bottom: 40px;
-  color: #c9a87c;
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 1;
   animation: bounce 2s infinite;
 }
 
@@ -783,6 +786,80 @@ input[type="radio"] {
 }
 
 /* ========================================
+   2. Our Story — Editorial Split
+   ======================================== */
+.story-split {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.story-photo-frame {
+  height: 580px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.10);
+}
+
+.story-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom center;
+  display: block;
+}
+
+.story-text .section-title {
+  text-align: left;
+}
+
+.story-text .divider {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.story-text .story-content {
+  text-align: left;
+  max-width: none;
+  margin: 0;
+}
+
+/* ========================================
+   Photo Band
+   ======================================== */
+.photo-band {
+  height: 460px;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+}
+
+.photo-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.18) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(250, 248, 245, 0.22) 100%
+  );
+  pointer-events: none;
+}
+
+/* ========================================
    8. Footer
    ======================================== */
 .footer {
@@ -820,7 +897,7 @@ input[type="radio"] {
    ======================================== */
 @media (max-width: 768px) {
   .hero-names {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
 
   .hero-date {
@@ -840,11 +917,6 @@ input[type="radio"] {
     font-size: 1.6rem;
   }
 
-  .hero-portrait {
-    width: 180px;
-    height: 180px;
-  }
-
   .invitation-section {
     min-height: 80vh;
   }
@@ -852,6 +924,29 @@ input[type="radio"] {
   .invitation-families {
     flex-direction: column;
     gap: 16px;
+  }
+
+  .story-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .story-photo-frame {
+    height: 380px;
+  }
+
+  .story-text .section-title,
+  .story-text .divider {
+    text-align: center;
+    margin-left: auto;
+  }
+
+  .story-text .story-content {
+    text-align: center;
+  }
+
+  .photo-band {
+    height: 300px;
   }
 
   .details-cards {
