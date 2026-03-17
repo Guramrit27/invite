@@ -54,52 +54,6 @@ a:hover {
   color: #d4a5a5;
 }
 
-/* --- Shabad Band --- */
-.shabad-band {
-  width: 100%;
-  padding: 100px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.shabad-band::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 10, 5, 0.55);
-  pointer-events: none;
-}
-
-.shabad-text {
-  position: relative;
-  z-index: 1;
-  font-family: 'Noto Serif Gurmukhi', serif;
-  font-size: 1.6rem;
-  color: #c9a87c;
-  letter-spacing: 0.04em;
-  line-height: 1.8;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .shabad-band {
-    padding: 80px 32px;
-  }
-
-  .shabad-text {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .shabad-text {
-    font-size: 1rem;
-  }
-}
 
 /* --- Navigation --- */
 .nav {
@@ -933,6 +887,15 @@ input[type="radio"] {
   font-style: italic;
   font-size: 0.85rem;
   color: #8a8a8a;
+}
+
+.footer-shabad {
+  font-family: 'Noto Serif Gurmukhi', serif;
+  font-size: 1rem;
+  color: #c9a87c;
+  margin-top: 28px;
+  letter-spacing: 0.03em;
+  line-height: 1.8;
 }
 
 /* ========================================
