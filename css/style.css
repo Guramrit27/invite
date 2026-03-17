@@ -851,6 +851,22 @@ input[type="radio"] {
 }
 
 /* ========================================
+   Photo Peek
+   ======================================== */
+.photo-peek {
+  height: 200px;
+  position: relative;
+}
+
+.photo-peek::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 10, 5, 0.3);
+  pointer-events: none;
+}
+
+/* ========================================
    Photo Band
    ======================================== */
 .photo-band {
