@@ -54,6 +54,53 @@ a:hover {
   color: #d4a5a5;
 }
 
+/* --- Shabad Band --- */
+.shabad-band {
+  width: 100%;
+  padding: 100px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.shabad-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 10, 5, 0.55);
+  pointer-events: none;
+}
+
+.shabad-text {
+  position: relative;
+  z-index: 1;
+  font-family: 'Noto Serif Gurmukhi', serif;
+  font-size: 1.6rem;
+  color: #c9a87c;
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .shabad-band {
+    padding: 80px 32px;
+  }
+
+  .shabad-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .shabad-text {
+    font-size: 1rem;
+  }
+}
+
 /* --- Navigation --- */
 .nav {
   position: fixed;
@@ -170,6 +217,15 @@ a:hover {
   z-index: 1;
 }
 
+.hero-flower {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  display: block;
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
 .hero-tagline {
   font-family: 'Lora', serif;
   font-style: italic;
@@ -251,85 +307,6 @@ a:hover {
   font-size: 1.05rem;
 }
 
-/* ========================================
-   Invitation — Full Background
-   ======================================== */
-.invitation-section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-}
-
-.invitation-bg {
-  position: absolute;
-  inset: 0;
-  background-size: contain;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-color: #c8c2b8;
-  cursor: pointer;
-  z-index: 1;
-  transition: transform 0.5s ease;
-}
-
-.invitation-bg:hover {
-  transform: scale(1.02);
-}
-
-.invitation-overlay {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  padding: 80px 0 80px;
-  background: linear-gradient(to top, rgba(58, 58, 58, 0.9) 0%, rgba(58, 58, 58, 0.7) 40%, rgba(58, 58, 58, 0.2) 70%, transparent 100%);
-  pointer-events: none;
-}
-
-.invitation-overlay .container {
-  pointer-events: auto;
-}
-
-.invitation-title {
-  color: #ffffff;
-}
-
-.invitation-families {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.family {
-  flex: 1;
-}
-
-.family-label {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #c9a87c;
-  margin-bottom: 6px;
-}
-
-.family p:not(.family-label) {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-}
-
-.family-amp {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
-  color: #c9a87c;
-  flex-shrink: 0;
-}
 
 /* ========================================
    3. Event Details
@@ -820,6 +797,89 @@ input[type="radio"] {
 }
 
 /* ========================================
+   Invitation Suite
+   ======================================== */
+.invitation-suite {
+  min-height: 100vh;
+  padding: 100px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  background: #1e1a15;
+}
+
+.invitation-side-block {
+  width: 64px;
+  align-self: stretch;
+  border-radius: 3px;
+  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .invitation-side-block {
+    display: none;
+  }
+}
+
+.invitation-suite-card {
+  max-width: 860px;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 780px;
+  transform: perspective(1600px) rotateY(-5deg) rotateX(2deg);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.25),
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 70px 100px rgba(0, 0, 0, 0.35),
+    20px 60px 80px rgba(0, 0, 0, 0.4);
+  transition: transform 0.7s ease, box-shadow 0.7s ease;
+}
+
+.invitation-suite-card:hover {
+  transform: perspective(1600px) rotateY(-1deg) rotateX(0.5deg) translateY(-12px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.12),
+    0 16px 36px rgba(0, 0, 0, 0.28),
+    0 48px 80px rgba(0, 0, 0, 0.52),
+    0 90px 120px rgba(0, 0, 0, 0.38),
+    24px 80px 100px rgba(0, 0, 0, 0.42);
+}
+
+.invitation-suite-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .invitation-suite {
+    padding: 80px 24px;
+    min-height: auto;
+  }
+
+  .invitation-suite-card {
+    max-width: 560px;
+    height: 480px;
+    transform: perspective(1000px) rotateY(-2deg) rotateX(1deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .invitation-suite-card {
+    transform: none;
+    height: 360px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ========================================
    Photo Band
    ======================================== */
 .photo-band {
@@ -894,15 +954,6 @@ input[type="radio"] {
     font-size: 1.6rem;
   }
 
-  .invitation-section {
-    min-height: 80vh;
-  }
-
-  .invitation-families {
-    flex-direction: column;
-    gap: 16px;
-  }
-
   .story-split {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -969,10 +1020,6 @@ input[type="radio"] {
 @media (max-width: 480px) {
   .hero-names {
     font-size: 1.8rem;
-  }
-
-  .invitation-section {
-    min-height: 60vh;
   }
 
   .gallery-grid {
