@@ -52,6 +52,37 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeEls.forEach(el => el.classList.add('visible'));
   }
 
+  // --- Invitation Lightbox ---
+  const invitationCard = document.getElementById('invitationCard');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  if (invitationCard && lightbox) {
+    invitationCard.addEventListener('click', () => {
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
   // --- RSVP Form Validation & Submission ---
   const form = document.getElementById('rsvpForm');
   const successEl = document.getElementById('rsvpSuccess');

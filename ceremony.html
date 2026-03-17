@@ -44,11 +44,24 @@
 
   <!-- 2. Invitation Suite -->
   <div class="invitation-suite" id="invitation">
-    <div class="invitation-side-block"><img src="images/32.png" alt="" aria-hidden="true"></div>
-    <div class="invitation-suite-card fade-in">
-      <img src="images/custom-invitation.png" alt="Wedding invitation suite">
+    <div class="invitation-side-block">
+      <picture>
+        <source media="(max-width: 768px)" srcset="images/32-mobile.jpg">
+        <img src="images/32-desktop.jpg" alt="" aria-hidden="true">
+      </picture>
     </div>
-    <div class="invitation-side-block"><img src="images/32.png" alt="" aria-hidden="true"></div>
+    <div class="invitation-suite-card fade-in" id="invitationCard">
+      <picture>
+        <source media="(max-width: 768px)" srcset="images/custom-invitation-mobile.jpg">
+        <img src="images/custom-invitation-desktop.jpg" alt="Wedding invitation suite">
+      </picture>
+    </div>
+    <div class="invitation-side-block">
+      <picture>
+        <source media="(max-width: 768px)" srcset="images/32-mobile.jpg">
+        <img src="images/32-desktop.jpg" alt="" aria-hidden="true">
+      </picture>
+    </div>
   </div>
 
   <!-- 3. Wedding Details -->
@@ -184,6 +197,12 @@
     <p class="footer-date">April 18, 2026</p>
     <p class="footer-love">Made with love</p>
   </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img src="images/custom-invitation-desktop.jpg" alt="Wedding invitation suite" class="lightbox-img">
+  </div>
 
   <script src="js/script.js"></script>
 </body>
