@@ -480,6 +480,7 @@ a:hover {
   border-color: rgba(201, 168, 124, 0.4);
 }
 
+
 .venue-icon {
   color: #c9a87c;
   margin-bottom: 16px;
@@ -892,7 +893,7 @@ input[type="radio"] {
 .footer-shabad {
   font-family: 'Noto Serif Gurmukhi', serif;
   font-size: 1rem;
-  color: #c9a87c;
+  color: #8aafc8;
   margin-bottom: 28px;
   letter-spacing: 0.03em;
   line-height: 1.8;
@@ -902,6 +903,10 @@ input[type="radio"] {
    Responsive
    ======================================== */
 @media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+
   .hero-names {
     font-size: 2.8rem;
   }
