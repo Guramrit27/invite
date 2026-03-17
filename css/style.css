@@ -18,7 +18,7 @@ html {
 
 body {
   font-family: 'Lora', Georgia, serif;
-  color: #5a5a5a;
+  color: #4a4040;
   background-color: #faf8f5;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
@@ -94,7 +94,7 @@ a:hover {
 }
 
 .section-ivory {
-  background-color: #faf8f5;
+  background-color: #fdf5e8;
 }
 
 .section-white {
@@ -103,18 +103,32 @@ a:hover {
 
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 600;
-  color: #3a3a3a;
+  color: #2e2420;
   text-align: center;
   letter-spacing: 0.02em;
 }
 
 .divider {
-  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 220px;
+  margin: 20px auto 52px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
   height: 1px;
-  background-color: #c9a87c;
-  margin: 20px auto 48px;
+  background: linear-gradient(to right, transparent, #c9a87c);
+}
+
+.divider::after {
+  background: linear-gradient(to left, transparent, #c9a87c);
 }
 
 .divider-light {
@@ -144,7 +158,7 @@ a:hover {
   justify-content: center;
   text-align: center;
   padding: 40px 24px;
-  background-color: #faf8f5;
+  background: linear-gradient(160deg, #fef8ed 0%, #faf5ee 50%, #fdf0e4 100%);
   position: relative;
 }
 
@@ -153,8 +167,9 @@ a:hover {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(201, 168, 124, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 50%, rgba(212, 165, 165, 0.06) 0%, transparent 50%);
+    radial-gradient(ellipse at 15% 40%, rgba(201, 168, 124, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 40%, rgba(212, 165, 165, 0.14) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 90%, rgba(201, 168, 124, 0.10) 0%, transparent 45%);
   pointer-events: none;
 }
 
@@ -163,13 +178,16 @@ a:hover {
 }
 
 .hero-portrait {
-  width: 220px;
-  height: 220px;
-  margin: 0 auto 32px;
+  width: 240px;
+  height: 240px;
+  margin: 0 auto 36px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #e0d6ce;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  border: 3px solid #c9a87c;
+  box-shadow:
+    0 0 0 6px rgba(201, 168, 124, 0.18),
+    0 0 0 12px rgba(201, 168, 124, 0.07),
+    0 12px 50px rgba(0, 0, 0, 0.12);
 }
 
 .hero-portrait img {
@@ -190,9 +208,9 @@ a:hover {
 
 .hero-names {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 600;
-  color: #3a3a3a;
+  color: #2e2420;
   line-height: 1.2;
   margin-bottom: 24px;
 }
@@ -221,7 +239,12 @@ a:hover {
   display: block;
   width: 60px;
   height: 1px;
-  background-color: #e0d6ce;
+  background: linear-gradient(to right, transparent, #c9a87c);
+}
+
+.hero-date span:last-child .hero-date-line,
+.hero-date .hero-date-line:last-child {
+  background: linear-gradient(to left, transparent, #c9a87c);
 }
 
 .hero-venue {
@@ -348,16 +371,17 @@ a:hover {
 
 .detail-card {
   text-align: center;
-  padding: 40px 24px;
-  background: #faf8f5;
-  border: 1px solid #e0d6ce;
+  padding: 44px 28px 40px;
+  background: #ffffff;
+  border: 1px solid rgba(201, 168, 124, 0.3);
+  border-top: 3px solid #c9a87c;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .detail-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(180, 140, 90, 0.12);
 }
 
 .detail-icon {
@@ -368,7 +392,7 @@ a:hover {
 .detail-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
-  color: #3a3a3a;
+  color: #2e2420;
   margin-bottom: 8px;
 }
 
@@ -525,9 +549,9 @@ a:hover {
 .venue-card {
   position: relative;
   padding: 36px 28px 32px;
-  border: 1px solid #e0d6ce;
+  border: 1px solid rgba(201, 168, 124, 0.25);
   border-radius: 12px;
-  background: #ffffff;
+  background: linear-gradient(160deg, #fffdf8 0%, #fefaf3 100%);
   text-align: center;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -535,7 +559,7 @@ a:hover {
 
 .venue-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 14px 44px rgba(180, 140, 90, 0.14);
 }
 
 .venue-card-top-bar {
@@ -572,7 +596,7 @@ a:hover {
 .venue-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.25rem;
-  color: #3a3a3a;
+  color: #2e2420;
   margin-bottom: 10px;
 }
 
@@ -684,10 +708,10 @@ textarea {
   font-family: 'Lora', serif;
   font-size: 0.95rem;
   padding: 12px 16px;
-  border: 1px solid #e0d6ce;
+  border: 1px solid rgba(201, 168, 124, 0.4);
   border-radius: 8px;
-  background: #faf8f5;
-  color: #5a5a5a;
+  background: #ffffff;
+  color: #4a4040;
   transition: border-color 0.3s, box-shadow 0.3s;
   outline: none;
 }
@@ -787,9 +811,10 @@ input[type="radio"] {
    ======================================== */
 .footer {
   text-align: center;
-  padding: 60px 24px;
-  background: #3a3a3a;
+  padding: 72px 24px;
+  background: linear-gradient(160deg, #2a1f18 0%, #3a2d24 60%, #2e2218 100%);
   color: #e0d6ce;
+  border-top: 3px solid #c9a87c;
 }
 
 .footer-names {
@@ -812,7 +837,7 @@ input[type="radio"] {
 .footer-love {
   font-style: italic;
   font-size: 0.85rem;
-  color: #8a8a8a;
+  color: rgba(201, 168, 124, 0.6);
 }
 
 /* ========================================
@@ -820,7 +845,7 @@ input[type="radio"] {
    ======================================== */
 @media (max-width: 768px) {
   .hero-names {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
   }
 
   .hero-date {
@@ -841,8 +866,8 @@ input[type="radio"] {
   }
 
   .hero-portrait {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
   }
 
   .invitation-section {
